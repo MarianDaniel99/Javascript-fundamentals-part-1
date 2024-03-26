@@ -1,41 +1,69 @@
-//Javascript fundamentals Part 2
+//Javascript Fundamentals Part 2
 
 //Functions
 function describeCountry(country, population, capitalCity) {
-    console.log(`${country} has ${population} milion people and its capital is ${capitalCity}`)
+    return `${country} has ${population} milion people and its capital is ${capitalCity}`;
 }
 
 let countryRomania = describeCountry("Romania",20,"Bucharest");
 let countrySpain = describeCountry("Spain",47,"Madrid");
 let countryFrance = describeCountry("France",67,"Paris");
 
+console.log(countryRomania);
+console.log(countrySpain);
+console.log(countryFrance);
+
 //Function Declaration vs Function Expressions
 const populationOfWorld = 7900;
-function percentageOfWorld1(country, population) {
-    let percentageOfWorld = (population/populationOfWorld) *100
-    console.log(`${country} has ${population} million people, so it's about ${percentageOfWorld}% of the world population`)
+function percentageOfWorld1(population) {
+   return(population/populationOfWorld) * 100
 }
 
-let percentageOfWorldChina = percentageOfWorld1("China",1441);
-let percentageOfWorldRomania = percentageOfWorld1("Romania",20);
-let percentageOfWorldFrance = percentageOfWorld1("France",67);
-
-
-let percentageOfWorld2 = function percentageOfWorld1(country, population) {
-    let percentageOfWorld = (population/populationOfWorld) *100
-    console.log(`${country} has ${population} million people, so it's about ${percentageOfWorld}% of the world population`)
+const percentageOfWorld2 = function (population) {
+    return(population/populationOfWorld) * 100
 }
 
-let percentageOfWorldItaly = percentageOfWorld2("Italy",59);
-let percentageOfWorldJapan = percentageOfWorld2("Japan",125);
-let percentageOfWorldSpain = percentageOfWorld2("Spain",47);
+//Function Declarations variables
+let chinaPercentage = percentageOfWorld1(1441);
+let romaniaPercentage = percentageOfWorld1(20);
+let francePercentage = percentageOfWorld1(67);
 
-//Arrow Function
-let percentageOfWorld3 = (country, population) => {
-    let percentageOfWorld = (population/populationOfWorld) *100
-    console.log(`${country} has ${population} million people, so it's about ${percentageOfWorld}% of the world population`)
+console.log(`China represents ${chinaPercentage} of the world population`);
+console.log(`Romania represents ${romaniaPercentage} of the world population`);
+console.log(`France represents ${francePercentage} of the world population`);
+
+//Function Expression variables
+let italyPercentage = percentageOfWorld2(59);
+let japanPercentage = percentageOfWorld2(125);
+let spainPercentage = percentageOfWorld2(47);
+
+console.log(`Italy represents ${italyPercentage} of the world population`);
+console.log(`Japan represents ${japanPercentage} of the world population`);
+console.log(`Spain represents ${spainPercentage} of the world population`);
+
+// //Arrow Function
+let percentageOfWorld3 = (population) => {
+    return (population/populationOfWorld) *100
 }
 
-let percentageOfWorldItalyArrow = percentageOfWorld3("Italy",59);
-let percentageOfWorldJapanArrow = percentageOfWorld3("Japan",125);
-let percentageOfWorldSpainArrow = percentageOfWorld3("Spain",47);
+let italyPercentage2 = percentageOfWorld3(59);
+let japanPercentage2 = percentageOfWorld3(125);
+let spainPercentage2 = percentageOfWorld3(47);
+
+console.log(italyPercentage2+"%");
+console.log(japanPercentage2+"%");
+console.log(spainPercentage2+"%");
+ 
+//Functions Calling Other Functions
+function describePopulation(country, population) {
+    const percentage = percentageOfWorld1(population);
+    return `${country} has ${population} million people, so it's about ${percentage}% of the world population`;
+}
+
+const describeItaly = describePopulation("Italy",59);
+const describeJapan = describePopulation("Japan",125);
+const describeChina = describePopulation("China",1441);
+
+console.log(describeItaly);
+console.log(describeJapan);
+console.log(describeChina);
