@@ -67,3 +67,121 @@ const describeChina = describePopulation("China",1441);
 console.log(describeItaly);
 console.log(describeJapan);
 console.log(describeChina);
+
+//Introduction to Array
+let populations = [125,59,20,1441];
+console.log(populations.length == 4);
+
+let percentages = [
+    percentageOfWorld1(populations[0]),
+    percentageOfWorld1(populations[1]),
+    percentageOfWorld1(populations[2]),
+    percentageOfWorld1(populations[3])
+];
+
+console.log(percentages);
+
+//Basic Array Operations (Methods)
+let neighbours = ["Bulgaria","Serbia","Ucraina","Ungaria","Moldova"];
+neighbours.push("Utopia");
+neighbours.pop();
+
+if(!neighbours.includes("Germany")){
+    console.log("Probably not a central European country :D");
+} else {
+    console.log("Germany is included in the array!");
+}
+
+
+let indexToReplace = neighbours.indexOf("Moldova");
+if(indexToReplace >= 0) {
+    neighbours[indexToReplace] = "Republic of Moldova"
+}
+console.log(neighbours);
+
+//Iteration: The for Loop
+for(let i =1; i<=50; i++){
+    console.log(`Voter number ${i} is curently voting`);
+}
+
+//Looping Arrays, Breaking and Continuing 
+let percentage2 = [];
+for(let i=0; i<populations.length;i++){
+    percentage2.push(percentageOfWorld1(populations[i]));
+}
+console.log(percentage2);
+
+const compareArrays = (percentages, percentage2) => {
+    if(percentages.length !== percentage2.length){
+        return false;
+    } else {
+        for(let i=0; i<percentages.length; i++){
+            if(percentages[i] !== percentage2[i]){
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+}
+if(compareArrays(percentages, percentage2))
+console.log("The arrays have the same elements !");
+
+// Looping Backwards and Loops in Loops
+const listOfNeighbours = [["Canada","Mexico"],["Spain"],["Poland","Sweden","Ukraine"]];
+for(let i=0; i<listOfNeighbours.length;i++){
+    let countries = listOfNeighbours[i];
+    for(let j=0;j<countries.length;j++){
+        console.log("Neighbour:", countries[j]);
+    }
+}
+
+//The while Loop
+let percentage3 = [];
+let i = 0;
+while(i<populations.length){
+    percentage3.push(percentageOfWorld1(populations[i]));
+    i++;
+}
+console.log(percentage3);
+
+const compareArrays2 = (percentages, percentage3) => {
+    if(percentages.length !== percentage3.length){
+        return false;
+    } else {
+        let i =0;
+        while(i<percentages.length){
+            if(percentages[i] !== percentage3[i]){
+                return false;
+            } 
+            i++;
+        }
+        return true;
+    }
+}
+if(compareArrays2(percentages, percentage3))
+console.log("The arrays have the same elements !");
+
+//Objects & Dot vs Bracket Notation
+
+let myCountry = {
+    country:'Japan',
+    capital: 'Tokyo',
+    language: 'japanse',
+    population: 125,
+    neighbours: [["Korea"],["Russia"],["China"]],
+    describe: function describeCountry () {
+        return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital} `
+    },
+    checkIsland: function isIsland(){
+       this.isIsland = this.neighbours.length === 0 ? true : false;
+    }
+}
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital} `);
+myCountry.population += 2;
+myCountry["population"] -= 2;
+
+//Object Methods 
+console.log(myCountry.describe());
+myCountry.checkIsland();
+console.log(myCountry.isIsland);

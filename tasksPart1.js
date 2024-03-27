@@ -6,7 +6,7 @@ let population = 20;
 console.log(country,continent,population);
 
 //Data Types
-let island = false;
+let isIsland = false;
 //let language;
 let language = "romana";
 console.log(typeof(country));
@@ -38,7 +38,7 @@ let description = 'Romania is in Europe, and its 20 million people speak romana'
 // }
 
 //Logical Operators
-if(island === false && population < 50 && language === "english") {
+if(isIsland === false && population < 50 && language === "english") {
     console.log("You should live in Romania");
 } else {
     console.log("Romania does not meet your criteria!");
@@ -46,7 +46,7 @@ if(island === false && population < 50 && language === "english") {
 
 //Temporarily change some variables in order to make the condition true
 //I've assigned a value to language variable, in order to make the condition true.
-if(island === false && population < 50 && language === "romana") {
+if(isIsland === false && population < 50 && language === "romana") {
     console.log("You should live in Romania");
 } else {
     console.log("Romania does not meet your criteria!");
@@ -65,9 +65,9 @@ console.log(5 + 6 + '4' + 9 - 4 - 2);
 5 + 6 + '4' + 9 - 4 - 2;  //1143
 
 if(population > 33) {
-    console.log("Romania's population is above average")
+    console.log(`${country}'s population is above average`)
 } else {
-    console.log("Romania's population is 13 milions below average")
+    console.log(`"${country}'s population is ${averagePopulation-population} milions below average"`)
 }
 
 //The switch statement 
